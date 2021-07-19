@@ -1,3 +1,5 @@
+from itertools import chain
+
 cars = {
     'Ford': ['Falcon', 'Focus', 'Festiva', 'Fairlane'],
     'Holden': ['Commodore', 'Captiva', 'Barina', 'Trailblazer'],
@@ -48,4 +50,4 @@ def sort_car_models(cars=cars):
     return newdict
 
 
-
+print(list(chain.from_iterable(cars.values())))
