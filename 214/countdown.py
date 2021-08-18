@@ -16,5 +16,5 @@ def countdown():
 
 
 cd = countdown()
-for i in range(11):
+for i in range(101):
     print(next(cd))
