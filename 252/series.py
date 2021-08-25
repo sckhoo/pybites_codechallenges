@@ -8,7 +8,7 @@ def return_at_index(ser: pd.Series, idx: int) -> object:
        the index does not exist.
     """
     try:
-        return ser.iloc[idx]
+        return ser[idx]
     except KeyError:
         raise KeyError
 
@@ -17,7 +17,7 @@ def get_slice(ser: pd.Series, start: int, end: int) -> pd.core.series.Series:
     start and end.
     """
     try:
-        return ser.iloc[start:end]
+        return ser[start:end]
     except KeyError:
         raise KeyError
 
@@ -27,7 +27,7 @@ def get_slice_inclusive(ser: pd.Series,
     start and end inclusive.
     """
     try:
-        return ser.iloc[start:end+1]
+        return ser.loc[start:end]
     except KeyError:
         raise KeyError
 
@@ -35,7 +35,7 @@ def return_head(ser: pd.Series, num: int) -> pd.core.series.Series:
     """Return the first num elements of the given Series.
     """
     try:
-        return ser.head(num+1)
+        return ser.head(num)
     except KeyError:
         raise KeyError
 
@@ -43,7 +43,7 @@ def return_tail(ser: pd.Series, num: int) -> pd.core.series.Series:
     """Return the last num elements of the given Series.
     """
     try:
-        return ser.tail(num+1)
+        return ser.tail(num)
     except KeyError:
         raise KeyError
 
@@ -58,7 +58,8 @@ def get_index(ser: pd.Series) -> pd.core.indexes.base.Index:
 def get_values(ser: pd.Series) -> np.ndarray:
     """Return all the values of the given Series.
     """
-    return ser.to_numpy()
+    #return ser.to_numpy()
+    return ser.values
 
 def get_every_second_indexes(ser: pd.Series,
                              even_index=True) -> pd.core.series.Series:
@@ -67,7 +68,7 @@ def get_every_second_indexes(ser: pd.Series,
     If even_index is False return every index where idx % 2 != 0
     Assume default indexing i.e. 0 -> n
     """
-    return ser.iloc[lambda x: x.index % 2 == 0] if even_index == True else ser.iloc[lambda x: x.index % 2 != 0]
+    return ser.iloc[lambda x: x.index % 2 == 0] if even_index else ser.iloc[lambda x: x.index % 2 != 0]
 
 
 
