@@ -2,7 +2,7 @@ from typing import List
 
 
 def minimum_number(digits: List[int]) -> int:
-    digits = sorted(list(dict.fromkeys(digits)))
+    digits = sorted(set(digits))
     return 0 if len(digits)==0 else int("".join(str(i) for i in digits))
 
 
