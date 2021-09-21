@@ -10,7 +10,7 @@ with requests.Session() as s:
 
 
 # your turn:
-
+mkdi
 def _cap_str_to_mln_float(cap):
     """If cap = 'n/a' return 0, else:
        - strip off leading '$',
