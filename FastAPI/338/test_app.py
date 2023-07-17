@@ -90,4 +90,4 @@ def test_create_food_wrong_food_payload(client, food_payload):
             }
         ]
     }
-    assert resp.json() == error
+    assert resp.json() == error 
