@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, List
 
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -26,13 +26,11 @@ async def create_food(food: Food):
     return food
 
 
-# write the two Read endpoints
+@app.get("/", response_model=List[Food])
+async def read_foods():
+    return list(foods.values())
 
-@app.get("/")
-def read_foods():
-    for value in foods.values():
-        yield value
 
-@app.get("/{id}")
-async def read_foods(id : int):
-  return foods[id]
+@app.get("/{food_id}", response_model=Food)
+async def read_food(food_id: int):
+    return foods[food_id]
