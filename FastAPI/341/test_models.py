@@ -7,7 +7,6 @@ from models import Food, FoodEntry, User, pwd_context
 
 LAME_PASSWORD = "1234"  # noqa S105
 
-
 # also from https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/
 def _verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
@@ -31,14 +30,14 @@ def food():
     )
     return food
 
-"""
+
 def test_create_user_object(user):
     assert type(user) == User
     assert user.id == 1
     assert user.username == "user1"
     assert _verify_password(LAME_PASSWORD, user.password) is True
 
-
+"""
 def test_create_incomplete_user_object():
     error = "username\n.*field required"
     with pytest.raises(ValidationError, match=error):
