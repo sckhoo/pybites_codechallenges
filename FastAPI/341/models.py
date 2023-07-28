@@ -48,3 +48,5 @@ class FoodEntry(BaseModel):
 foodentry = FoodEntry(id=1, user=user, food=food, date_added=datetime.now(), number_servings=2.5)
 
 print(foodentry)
+
+print(foodentry.total_calories)
