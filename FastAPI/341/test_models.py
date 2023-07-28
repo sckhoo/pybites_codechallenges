@@ -37,13 +37,13 @@ def test_create_user_object(user):
     assert user.username == "user1"
     assert _verify_password(LAME_PASSWORD, user.password) is True
 
-"""
+
 def test_create_incomplete_user_object():
     error = "username\n.*field required"
     with pytest.raises(ValidationError, match=error):
         User(id=1, password="abc")
 
-
+"""
 def test_create_user_object_wrong_type():
     error = "User\nid\n  value is not a valid integer"
     with pytest.raises(ValidationError, match=error):
